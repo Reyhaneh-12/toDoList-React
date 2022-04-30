@@ -1,9 +1,15 @@
 import './App.css';
 
 function App() {
+
   return (
     <div className="App">
-     Start
+      <div className="Card">
+        <header className="Header">
+          <h1 className="headerTitle">To Do List</h1>
+        </header>
+        
+      </div>
     </div>
   );
 }
