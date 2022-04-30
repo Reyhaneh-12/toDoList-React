@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css';
 
 function App() {
@@ -8,7 +8,16 @@ function App() {
   const [todoEditing, setTodoEditing] = useState(null);
   const [textEditing, setTextEditing] = useState("");
 
-  
+  useEffect(() => {
+    const temp = localStorage.getItem("todos");
+    const loadedTodos = JSON.parse(temp);
+    setTodos(loadedTodos);
+  },[])
+
+  useEffect(() => {
+    const temp = JSON.stringify(todos);
+    localStorage.setItem("todos", temp);
+  },[todos])
 
   const formHandler = (event) => {
     event.preventDefault();
